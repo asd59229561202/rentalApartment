@@ -1,0 +1,47 @@
+<div *ngIf="navigationState &&  navigationState.length>0">
+    <div #holder id="holder" class="filter">
+        <h5>搜尋結果</h5>
+        <ul class="dropdown-menu">
+            <button for="ex1_1" class="sortBtn" name="room">
+                智慧排序 <i class="arrow-icon"></i>
+            </button>
+            <button for="ex1_2" class="sortBtn" name="sortTime">
+                更新時間 <i class="arrow-icon"></i>
+            </button>
+            <button for="ex1_3" class="sortBtn" name="rental">
+                租金 <i class="arrow-icon"></i>
+            </button>
+            <button for="ex1_4" class="sortBtn" name="totalSize">
+                可使用坪數 <i class="arrow-icon"></i>
+            </button>
+            <button for="ex1_5" class="sortBtn" name="click">
+                人氣 <i class="arrow-icon"></i>
+            </button>
+        </ul>
+    </div>
+    
+        <div class="room-info" *ngFor="let item of navigationState" (click)="detail(item)">
+            <div class="image-container">
+                <span class="tag-hot"><i class="pi pi-trophy">新上架 </i></span>
+                <img src="assets/images/0a7c5966-fa97-4a79-ab0b-6989dda4fade.jpg" alt="房間圖片">
+            </div>
+            <div class="details">
+                <div class="lefttitle">
+                    <h2>{{ item.title }}</h2>
+                    <p class="address">{{ item.street_number }}</p>
+                    <p>{{ item.area }} 平方米</p>
+                    <p>{{ item.floor }}</p>
+                </div>
+                <div class="righttitle">
+                    <li class="pi pi-heart">追蹤</li>
+                    <p class="price">{{ item.rent }} 元</p>
+                </div>
+            </div>
+        </div>
+    
+    
+
+</div>
+<div *ngIf="navigationState &&  navigationState.length == 0">
+   <span>{{navigationOptions.city}}</span> 
+</div>

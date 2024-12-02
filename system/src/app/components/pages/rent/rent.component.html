@@ -1,0 +1,47 @@
+<div class="body">
+
+    <div class="searchBar">
+        <form [formGroup]="searchForm">
+            <div class="condition">
+
+
+
+                <!-- p-treeSelect不能用style修改 -->
+                <p-treeSelect class="search-select"
+                    [containerStyle]="{'direction':'row',  'margin-top':'20px','margin-bottom':'10px',  'height':'3rem','border':'none','appearance': 'none'}"
+                    [options]="city" selectionMode="checkbox" [metaKeySelection]="false" placeholder="區域"
+                    formControlName="searchCity" />
+
+                <p-multiSelect [options]="type" formControlName="searchType"
+                    [style]="{ 'margin-bottom':'10px',  'height':'3rem','border':'none','appearance': 'none'}"
+                    [showHeader]="false" placeholder="類型" [group]="" />
+
+
+                <p-multiSelect [options]="price" formControlName="serachPrice"
+                    [style]="{ 'margin-bottom':'10px',  'height':'3rem','border':'none','appearance': 'none'}"
+                    [showHeader]="false" placeholder="價格" />
+
+                <p-multiSelect [options]="room" formControlName="serachRoom"
+                    [style]="{ 'margin-bottom':'10px',  'height':'3rem','border':'none','appearance': 'none'}"
+                    [showHeader]="false" placeholder="房型" />
+
+                <p-multiSelect [options]="floor" formControlName="serachFloor"
+                    [style]="{ 'margin-bottom':'10px',  'height':'3rem','border':'none','appearance': 'none'}"
+                    [showHeader]="false" placeholder="樓層" />
+                <input #s type="text" placeholder="請輸入街道、社區、學校關鍵字" class="inputField" formControlName="searchBar"
+                    [style]="{ 'margin-bottom':'10px',  'height':'3rem','appearance': 'none'}" />
+
+                <button class="searchBtn" onclick="onSubmit()">搜尋</button>
+
+
+
+            </div>
+
+        </form>
+    </div>
+</div>
+<div *ngIf="'result!=[]'">
+    <app-rental-itemm-result [result]="resultItem"></app-rental-itemm-result>
+</div>
+
+<app-rental-item></app-rental-item>
